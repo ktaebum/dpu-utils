@@ -3,7 +3,7 @@ import tensorflow as tf
 from .constants import SMALL_NUMBER
 
 
-@tf.function
+# @tf.function
 def unsorted_segment_logsumexp(scores, segment_ids, num_segments):
     """Perform an unsorted segment safe logsumexp."""
     # Note: if a segment is empty, the smallest value for the score will be returned,
@@ -22,7 +22,7 @@ def unsorted_segment_logsumexp(scores, segment_ids, num_segments):
     return per_segment_logs + max_per_segment
 
 
-@tf.function
+# @tf.function
 def unsorted_segment_log_softmax(logits, segment_ids, num_segments):
     """Perform an unsorted segment safe log_softmax."""
     # Note: if a segment is empty, the smallest value for the score will be returned,
@@ -45,7 +45,7 @@ def unsorted_segment_log_softmax(logits, segment_ids, num_segments):
     return log_probs
 
 
-@tf.function
+# @tf.function
 def unsorted_segment_softmax(logits, segment_ids, num_segments):
     """Perform a safe unsorted segment softmax."""
     max_per_segment = tf.math.unsorted_segment_max(
